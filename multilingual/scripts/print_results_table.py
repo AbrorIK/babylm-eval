@@ -88,7 +88,7 @@ def model_sort_key(model_name: str) -> tuple[int, str]:
 
 
 def main():
-    results_dir = Path(__file__).parent.parent / "results" / "main"
+    results_dir = Path(__file__).parent.parent / "results"
     json_files = sorted(glob(str(results_dir / "**/results*.json"), recursive=True))
 
     # model name = name of folder directly containing the results JSON

@@ -9,6 +9,8 @@ Usage:
     python scripts/collate_results.py --model_name gpt2-baseline-BabyLM-2026-Strict
 """
 
+from __future__ import annotations
+
 import argparse
 import json
 import math
