@@ -3,7 +3,7 @@
 #SBATCH -p a40                                          # Use a40 partition
 #SBATCH --gres=gpu:a40:1                                # Request 1 GPU
 #SBATCH --cpus-per-task=4                               # CPUs for data loading
-#SBATCH --time=06:00:00                                 # 8 hours (zero-shot + finetune for 3 langs)
+#SBATCH --time=03:00:00                                 # 3 hours (zero-shot + finetune for 3 langs)
 #SBATCH -o /home/hpc/b279bb/b279bb26/thesis/babylm-eval/logs/eval_log_%j.out  # Standard output
 #SBATCH -e /home/hpc/b279bb/b279bb26/thesis/babylm-eval/logs/eval_log_%j.err  # Standard error
 
@@ -28,8 +28,8 @@ export WANDB_MODE=disabled
 
 source $HOME/thesis/babylm26/.venv/bin/activate
 
-MY_MODEL_PATH="$HOME/thesis/babylm26/output/multihead-gpt2-complex/-export/nld"
-MODEL_NAME="multihead-gpt2-complex"
+MY_MODEL_PATH="$HOME/thesis/babylm26/output/gpt2-multihead-prealign-continuous/checkpoint-87890/-export/nld"
+MODEL_NAME="gpt2-multihead-prealign-continuous"
 
 LANGS="nld"
 
