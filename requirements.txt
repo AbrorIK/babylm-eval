@@ -1,4 +1,4 @@
-lm-eval
+lm-eval==0.4.12
 transformers
 statsmodels
 typing_extensions>=4.15

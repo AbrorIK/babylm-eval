@@ -88,18 +88,14 @@ def model_sort_key(model_name: str) -> tuple[int, str]:
 
 
 def main():
-    results_dir = Path(__file__).parent.parent / "results"
+    results_dir = Path(__file__).parent.parent / "results" / "main"
     json_files = sorted(glob(str(results_dir / "**/results*.json"), recursive=True))
 
-    # model name = top-level folder directly under results_dir
-    # multiple JSON files (one per language run) merge under the same model
+    # model name = name of folder directly containing the results JSON
+    # multiple JSON files can share the same folder (one per language run) — merge them
     all_models: dict[str, dict[str, dict[str, float]]] = {}
     for json_path in json_files:
-        # Walk up from the JSON file to find the direct child of results_dir
-        p = Path(json_path).parent
-        while p.parent != results_dir:
-            p = p.parent
-        model_name = p.name
+        model_name = Path(json_path).parent.name.split("__")[-1]
         if model_name not in all_models:
             all_models[model_name] = {}
         for group, tasks in load_model(json_path).items():
