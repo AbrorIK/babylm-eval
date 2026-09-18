@@ -6,34 +6,52 @@ from glob import glob
 from pathlib import Path
 
 
-def parse_groups(results: dict) -> dict[str, dict[str, float]]:
-    """Parse results JSON into {group -> {task -> score}}.
+def _score(task_name: str, entry: dict) -> float | None:
+    """Score for one task, in percent. Global PIQA reports acc_norm only."""
+    if task_name.startswith("global_piqa"):
+        val = entry.get("acc_norm,none", entry.get("acc,none"))
+    else:
+        val = entry.get("acc,none", entry.get("acc_norm,none"))
+    return None if val is None else round(val * 100, 2)
 
-    indent=0: language group (e.g. zeroshot_eng)
-    indent=1: task rows (e.g. blimp, multiblimp_eng)
-    indent=2: subtasks already aggregated into indent=1, skip
+
+def parse_groups(data: dict) -> dict[str, dict[str, float]]:
+    """Parse a results JSON into {top-level group -> {task -> score}}.
+
+    The hierarchy comes from `group_subtasks` ({group: [children]}), not from
+    the leading spaces in `alias`: newer lm-eval versions stopped indenting
+    aliases, which made every row look like a top-level group.
+
+    A top-level group (e.g. zeroshot_eng) is one that is nobody's child. Its
+    direct children become the task rows; a child that is itself a group
+    (e.g. blimp_babylm_filtered) stays one aggregated row, and its own
+    subtasks are not expanded.
     """
+    results = {**data.get("results", {}), **data.get("groups", {})}
+    group_subtasks: dict[str, list[str]] = data.get("group_subtasks", {})
+
+    if not group_subtasks:
+        # Task-only run with no group wrapper: one row per task.
+        scores = {t: _score(t, e) for t, e in results.items()}
+        return {"ungrouped": {t: s for t, s in scores.items() if s is not None}}
+
+    children = {c for subtasks in group_subtasks.values() for c in subtasks}
+    top_level = [g for g in group_subtasks if g not in children]
+
     groups: dict[str, dict[str, float]] = {}
-    current_group = None
-
-    for task_name, task_data in results.items():
-        alias = task_data.get("alias", task_name)
-        indent = len(alias) - len(alias.lstrip())
-        acc = task_data.get("acc,none")
-
-        if indent == 0:
-            current_group = task_name
-            groups[current_group] = {}
-        elif indent == 1 and current_group is not None and acc is not None:
-            groups[current_group][task_name] = round(acc * 100, 2)
-
+    for group in top_level:
+        rows: dict[str, float] = {}
+        for task in group_subtasks[group]:
+            score = _score(task, results.get(task, {}))
+            if score is not None:
+                rows[task] = score
+        groups[group] = rows
     return groups
 
 
 def load_model(json_path: str) -> dict[str, dict[str, float]]:
     with open(json_path) as f:
-        data = json.load(f)
-    return parse_groups(data["results"])
+        return parse_groups(json.load(f))
 
 
 def fmt_row(cells: list[str]) -> str:
@@ -88,7 +106,7 @@ def model_sort_key(model_name: str) -> tuple[int, str]:
 
 
 def main():
-    results_dir = Path(__file__).parent.parent / "results" / "main"
+    results_dir = Path(__file__).parent.parent / "results"
     json_files = sorted(glob(str(results_dir / "**/results*.json"), recursive=True))
 
     # model name = name of folder directly containing the results JSON
