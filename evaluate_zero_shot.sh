@@ -7,8 +7,6 @@
 #SBATCH -o /home/hpc/b279bb/b279bb26/thesis/babylm-eval/logs/eval_%x_%j.out  # %x = job name
 #SBATCH -e /home/hpc/b279bb/b279bb26/thesis/babylm-eval/logs/eval_%x_%j.err
 
-# Zero-shot evaluation of a locally trained checkpoint.
-#
 # Usage: sbatch evaluate_zero_shot.sh [model_path] [model_name]
 #   model_path  directory holding config.json  (default: $WORK/output1/baseline/seed0)
 #   model_name  label the results are filed under (default: basename-of-parent + basename,
@@ -49,9 +47,6 @@ fi
 
 cd "$EVAL_DIR" || exit 1
 
-# lm-eval names its output folder after the *basename* of the model path, and
-# the default path's basename is just "seed0". Symlink the checkpoint to a path
-# whose basename is $MODEL_NAME so the results stay identifiable.
 mkdir -p "$LINK_DIR"
 EVAL_MODEL_PATH="$LINK_DIR/$MODEL_NAME"
 ln -sfn "$MODEL_PATH" "$EVAL_MODEL_PATH"
@@ -76,8 +71,6 @@ echo "Zero-shot evaluation finished (status $STATUS)"
 echo "End time: $(date)"
 echo ""
 echo "Results: $EVAL_DIR/results/main/*${MODEL_NAME}/"
-echo "Read them with:"
-echo "  cd $EVAL_DIR && python3 scripts/print_results_table.py"
 echo "=========================================="
 
 exit $STATUS

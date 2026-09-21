@@ -59,8 +59,6 @@ echo "Model name:   $MODEL_NAME"
 echo "Languages:    $LANGS"
 echo ""
 
-# Steps run independently, so one failure does not abort the rest — an
-# incomplete submission is allowed, a silently wrong one is not.
 STATUS=0
 
 for LANG in $LANGS; do
@@ -71,9 +69,6 @@ for LANG in $LANGS; do
         continue
     fi
 
-    # lm-eval names its output folder after the model path, so give each export
-    # a path whose basename is <model>-<lang>. That keeps the three runs
-    # separable in results/ and is what print_results_table.py reads.
     EVAL_MODEL_PATH="$LINK_DIR/${MODEL_NAME}-${LANG}"
     ln -sfn "$LANG_DIR" "$EVAL_MODEL_PATH"
 
@@ -82,8 +77,6 @@ for LANG in $LANGS; do
     echo "### $LANG -> $EVAL_MODEL_PATH"
     echo "=========================================="
 
-    # --langs is this export's own language ONLY. This is the whole point of the
-    # script; widening it here reintroduces the bug.
     echo "--- [1/4] Zero-shot ($LANG) ---"
     bash scripts/zeroshot_model.sh --model_name "$EVAL_MODEL_PATH" --langs "$LANG" --bos_fix 1 || STATUS=1
 
@@ -106,9 +99,6 @@ echo "Results (one set per language):"
 echo "  Zero-shot + PIQA : $EVAL_DIR/results/main/*${MODEL_NAME}-{eng,nld,zho}/"
 echo "  MECO             : $EVAL_DIR/meco/results/main/"
 echo "  Finetune         : $EVAL_DIR/finetune/results/${MODEL_NAME}-{eng,nld,zho}/"
-echo ""
-echo "Read them with:"
-echo "  cd $EVAL_DIR && python3 scripts/print_results_table.py"
 echo "=========================================="
 
 exit $STATUS
