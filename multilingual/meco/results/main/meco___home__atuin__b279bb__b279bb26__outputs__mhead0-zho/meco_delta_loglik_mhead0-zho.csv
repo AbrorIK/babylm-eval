@@ -1,0 +1,2 @@
+eval,model_id,lang,meco_lang,logLik,baseline_loglik,normalized_loglik,proportion_deviance_explained
+L1,/home/atuin/b279bb/b279bb26/outputs/mhead0-zho,zho,ch_s,-183722.3336064497,-184347.2375223043,624.9039158545784,0.003389819800141969

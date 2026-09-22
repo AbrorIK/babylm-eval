@@ -1,0 +1,47 @@
+{
+  "winogrande_zh_mubench": {
+    "winogrande_zh_mubench": 0.5103050288540808
+  },
+  "xstorycloze_zh_mubench": {
+    "xstorycloze_zh_mubench": 0.46826625386996906
+  },
+  "hellaswag_zh_mubench": {
+    "hellaswag_zh_mubench": 0.2673042901371075
+  },
+  "xcomps_zh": {
+    "xcomps_zh": 0.5519557349665924
+  },
+  "zhoblimp": {
+    "zhoblimp": 0.7831638418079097
+  },
+  "global_piqa_parallel_zh": {
+    "global_piqa_parallel_zh": 0.1941747572815534
+  },
+  "global_piqa_nonparallel_zh": {
+    "global_piqa_nonparallel_zh": 0.5
+  },
+  "arc": {
+    "zh": 0.25
+  },
+  "belebele": {
+    "zh": 0.25
+  },
+  "bmlama": {
+    "zh": 0.2044702023267746
+  },
+  "include": {
+    "zh": 0.25
+  },
+  "mnli": {
+    "zh": 0.5990990996360779
+  },
+  "sib200": {
+    "zh": 0.8149999976158142
+  },
+  "truthfulqa": {
+    "zh": 0.2232142835855484
+  },
+  "xnli": {
+    "zh": 0.534500002861023
+  }
+}

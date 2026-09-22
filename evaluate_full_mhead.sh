@@ -3,20 +3,11 @@
 #SBATCH -p a40                                          # Use a40 partition
 #SBATCH --gres=gpu:a40:1                                # Request 1 GPU
 #SBATCH --cpus-per-task=4                               # CPUs for data loading
-#SBATCH --time=06:00:00                                 # Same work as evaluate_full.sh, but 3 model loads + 3x finetune
+#SBATCH --time=02:00:00                                 # Same work as evaluate_full.sh, but 3 model loads + 3x finetune
 #SBATCH -o /home/hpc/b279bb/b279bb26/thesis/babylm-eval/logs/eval_%x_%j.out  # %x = job name
 #SBATCH -e /home/hpc/b279bb/b279bb26/thesis/babylm-eval/logs/eval_%x_%j.err
 
 # Usage: sbatch evaluate_full_mhead.sh [model_path] [model_name]
-#   model_path  directory holding eng/ nld/ zho/ subdirectories, each with its own
-#               config.json -- or a run directory containing checkpoint-*-export,
-#               in which case the newest export is used
-#               (default: $WORK/output/multihead/seed0)
-#   model_name  label the results are filed under (default: basename-of-parent + basename,
-#               i.e. "multihead-seed0" for the default path)
-#
-# Each language head is evaluated on its own language only, then the three
-# per-head submissions are merged into one submission for the leaderboard.
 
 MODEL_PATH="${1:-$WORK/output/multihead/seed0}"
 MODEL_PATH="${MODEL_PATH%/}"

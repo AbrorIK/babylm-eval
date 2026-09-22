@@ -3,7 +3,7 @@
 #SBATCH -p a40                                          # Use a40 partition
 #SBATCH --gres=gpu:a40:1                                # Request 1 GPU
 #SBATCH --cpus-per-task=4                               # CPUs for data loading
-#SBATCH --time=06:00:00                                 # 8 tasks x 3 languages + POS
+#SBATCH --time=02:00:00                                 # 8 tasks x 3 languages + POS
 #SBATCH -o /home/hpc/b279bb/b279bb26/thesis/babylm-eval/logs/eval_%x_%j.out  # %x = job name
 #SBATCH -e /home/hpc/b279bb/b279bb26/thesis/babylm-eval/logs/eval_%x_%j.err
 

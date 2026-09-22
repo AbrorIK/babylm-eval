@@ -1,0 +1,103 @@
+{
+  "multiblimp_eng": {
+    "multiblimp_eng": 0.8987012987012987
+  },
+  "winogrande_en_mubench": {
+    "winogrande_en_mubench": 0.5037098103874691
+  },
+  "xstorycloze_en_mubench": {
+    "xstorycloze_en_mubench": 0.47368421052631576
+  },
+  "hellaswag_en_mubench": {
+    "hellaswag_en_mubench": 0.26089119858469706
+  },
+  "multiblimp_nld": {
+    "multiblimp_nld": 0.9427284427284427
+  },
+  "winogrande_nl_mubench": {
+    "winogrande_nl_mubench": 0.49505358615004125
+  },
+  "hellaswag_nl_mubench": {
+    "hellaswag_nl_mubench": 0.2601172047766475
+  },
+  "xcomps_nl": {
+    "xcomps_nl": 0.5391842984409799
+  },
+  "xstorycloze_nl_mubench": {
+    "xstorycloze_nl_mubench": 0.4694272445820433
+  },
+  "blimp_nl": {
+    "blimp_nl": 0.8114444444444444
+  },
+  "winogrande_zh_mubench": {
+    "winogrande_zh_mubench": 0.5
+  },
+  "xstorycloze_zh_mubench": {
+    "xstorycloze_zh_mubench": 0.4810371517027864
+  },
+  "hellaswag_zh_mubench": {
+    "hellaswag_zh_mubench": 0.27073197700132684
+  },
+  "xcomps_zh": {
+    "xcomps_zh": 0.5541829064587973
+  },
+  "zhoblimp": {
+    "zhoblimp": 0.7872316384180791
+  },
+  "global_piqa_parallel_en": {
+    "global_piqa_parallel_en": 0.2815533980582524
+  },
+  "global_piqa_nonparallel_en": {
+    "global_piqa_nonparallel_en": 0.48
+  },
+  "global_piqa_parallel_nl": {
+    "global_piqa_parallel_nl": 0.1941747572815534
+  },
+  "global_piqa_nonparallel_nl": {
+    "global_piqa_nonparallel_nl": 0.52
+  },
+  "global_piqa_parallel_zh": {
+    "global_piqa_parallel_zh": 0.20388349514563106
+  },
+  "global_piqa_nonparallel_zh": {
+    "global_piqa_nonparallel_zh": 0.55
+  },
+  "arc": {
+    "en": 0.26875001192092896,
+    "nl": 0.2562499940395355,
+    "zh": 0.26249998807907104
+  },
+  "belebele": {
+    "en": 0.28977271914482117,
+    "nl": 0.21022726595401764,
+    "zh": 0.2443181872367859
+  },
+  "bmlama": {
+    "en": 0.1928807944059372,
+    "nl": 0.22268211841583252,
+    "zh": 0.1316225230693817
+  },
+  "mnli": {
+    "en": 0.5625,
+    "nl": 0.5793918967247009,
+    "zh": 0.5974099040031433
+  },
+  "sib200": {
+    "en": 0.7350000143051147,
+    "nl": 0.7200000286102295,
+    "zh": 0.7950000166893005
+  },
+  "truthfulqa": {
+    "en": 0.2767857015132904,
+    "nl": 0.25,
+    "zh": 0.2767857015132904
+  },
+  "xnli": {
+    "en": 0.5615000128746033,
+    "zh": 0.5270000100135803
+  },
+  "include": {
+    "nl": 0.3125,
+    "zh": 0.2857142984867096
+  }
+}
