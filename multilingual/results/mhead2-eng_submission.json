@@ -1,0 +1,41 @@
+{
+  "multiblimp_eng": {
+    "multiblimp_eng": 0.9064935064935065
+  },
+  "winogrande_en_mubench": {
+    "winogrande_en_mubench": 0.4905193734542457
+  },
+  "xstorycloze_en_mubench": {
+    "xstorycloze_en_mubench": 0.48761609907120745
+  },
+  "hellaswag_en_mubench": {
+    "hellaswag_en_mubench": 0.26260504201680673
+  },
+  "global_piqa_parallel_en": {
+    "global_piqa_parallel_en": 0.2621359223300971
+  },
+  "global_piqa_nonparallel_en": {
+    "global_piqa_nonparallel_en": 0.51
+  },
+  "arc": {
+    "en": 0.26249998807907104
+  },
+  "belebele": {
+    "en": 0.25
+  },
+  "bmlama": {
+    "en": 0.2657284736633301
+  },
+  "mnli": {
+    "en": 0.5529279112815857
+  },
+  "sib200": {
+    "en": 0.7649999856948853
+  },
+  "truthfulqa": {
+    "en": 0.2589285671710968
+  },
+  "xnli": {
+    "en": 0.5644999742507935
+  }
+}

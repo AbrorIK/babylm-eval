@@ -1,0 +1,103 @@
+{
+  "multiblimp_eng": {
+    "multiblimp_eng": 0.8987012987012987
+  },
+  "winogrande_en_mubench": {
+    "winogrande_en_mubench": 0.49381698268755153
+  },
+  "xstorycloze_en_mubench": {
+    "xstorycloze_en_mubench": 0.48374613003095973
+  },
+  "hellaswag_en_mubench": {
+    "hellaswag_en_mubench": 0.26127819548872183
+  },
+  "global_piqa_parallel_en": {
+    "global_piqa_parallel_en": 0.2912621359223301
+  },
+  "global_piqa_nonparallel_en": {
+    "global_piqa_nonparallel_en": 0.5
+  },
+  "arc": {
+    "en": 0.2291666716337204,
+    "nl": 0.2562499940395355,
+    "zh": 0.24166665971279144
+  },
+  "belebele": {
+    "en": 0.23863635957241058,
+    "nl": 0.19886364042758942,
+    "zh": 0.23295454680919647
+  },
+  "bmlama": {
+    "en": 0.18294702470302582,
+    "nl": 0.2897351086139679,
+    "zh": 0.14486755430698395
+  },
+  "mnli": {
+    "en": 0.579954981803894,
+    "nl": 0.5777027010917664,
+    "zh": 0.6081081032752991
+  },
+  "sib200": {
+    "en": 0.7749999761581421,
+    "nl": 0.7300000190734863,
+    "zh": 0.824999988079071
+  },
+  "truthfulqa": {
+    "en": 0.2767857015132904,
+    "nl": 0.2678571343421936,
+    "zh": 0.2142857164144516
+  },
+  "xnli": {
+    "en": 0.5745000243186951,
+    "zh": 0.5304999947547913
+  },
+  "multiblimp_nld": {
+    "multiblimp_nld": 0.9270699270699271
+  },
+  "winogrande_nl_mubench": {
+    "winogrande_nl_mubench": 0.4830997526793075
+  },
+  "hellaswag_nl_mubench": {
+    "hellaswag_nl_mubench": 0.258624502432552
+  },
+  "xcomps_nl": {
+    "xcomps_nl": 0.5374443207126949
+  },
+  "xstorycloze_nl_mubench": {
+    "xstorycloze_nl_mubench": 0.4791021671826625
+  },
+  "blimp_nl": {
+    "blimp_nl": 0.8113888888888889
+  },
+  "global_piqa_parallel_nl": {
+    "global_piqa_parallel_nl": 0.20388349514563106
+  },
+  "global_piqa_nonparallel_nl": {
+    "global_piqa_nonparallel_nl": 0.48
+  },
+  "include": {
+    "nl": 0.3035714328289032,
+    "zh": 0.2589285671710968
+  },
+  "winogrande_zh_mubench": {
+    "winogrande_zh_mubench": 0.5004122011541632
+  },
+  "xstorycloze_zh_mubench": {
+    "xstorycloze_zh_mubench": 0.47832817337461303
+  },
+  "hellaswag_zh_mubench": {
+    "hellaswag_zh_mubench": 0.26608801415302963
+  },
+  "xcomps_zh": {
+    "xcomps_zh": 0.5497285634743875
+  },
+  "zhoblimp": {
+    "zhoblimp": 0.79954802259887
+  },
+  "global_piqa_parallel_zh": {
+    "global_piqa_parallel_zh": 0.20388349514563106
+  },
+  "global_piqa_nonparallel_zh": {
+    "global_piqa_nonparallel_zh": 0.54
+  }
+}
